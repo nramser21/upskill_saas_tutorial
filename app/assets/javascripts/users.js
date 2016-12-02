@@ -2,7 +2,7 @@
 /* global Stripe */
 $(document).on('turbolinks:load', function() {
   var form = $('#pro_form');
-  var submitBtn = $('#form-submit-btn');
+  var submitBtn = $('#form-signup-btn');
   Stripe.setPublishableKey($("meta[name='stripe-key']").attr('content'));
   
   submitBtn.click(function(e) {
@@ -44,8 +44,7 @@ $(document).on('turbolinks:load', function() {
   var stripeResponseHandler = function(status, response) {
     var token = response.id;
     form.append($('<input type="hidden" name="user[stripe_card_token]">').val(token));
+    form.get(0).submit();
   };
-  
-  form.get(0).submit;
 });
   
