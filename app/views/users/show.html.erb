@@ -10,7 +10,7 @@
         <h3>Description</h3>
         <p><%= @user.profile.description %></p>
       </div>
-      <% if @user.plan == 2 %>
+      <% if current_user.plan_id == 2 %>
         <div class="well profile-block" id="profile-contact-info">
           <h3>Contact Info</h3>
           <p><%= @user.profile.email %></p>
