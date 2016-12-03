@@ -1,2 +1,22 @@
-<%= @user.profile.first_name %>
-<%= image_tag @user.profile.avatar.url %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
+    </div>
+    <div class="col-md-6">
+      <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
+      <h3><%= @user.profile.job_title %></h3>
+      <div class="well profile-block" id="profile-description">
+        <h3>Description</h3>
+        <p><%= @user.profile.description %></p>
+      </div>
+      <% if @user.plan == 2 %>
+        <div class="well profile-block" id="profile-contact-info">
+          <h3>Contact Info</h3>
+          <p><%= @user.profile.email %></p>
+          <p><%= @user.profile.phone_number %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
